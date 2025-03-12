@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Анкета</title>
+    <!--Подключаем CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <!--Создаем блок класса "container" для формы-->
+    <div class="container">
+        <h1>Анкета пользователя</h1>
+        <!--Создаем форму с методом POST, чтобы отправлять данные из этой формы-->
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="city">Город:</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="hobby">Хобби:</label>
+                <input type="text" class="form-control" id="hobby" name="hobby" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Возраст:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+        <hr>
+       <!--Используем цикл for, чтобы публиковать карточки с данными пользователей-->
+        <h2>Пользователи</h2>
+        {% for user in users %}
+       <!--Создаем отдельный блок, внутри которого формируем карточку клиента-->
+        <div class="card">
+            <h4>Имя: {{user.name}}</h4>
+            <p>Город: {{user.city}}</p>
+            <p>Хобби: {{user.hobby}}</p>
+            <p>Возраст: {{user.age}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <!--Подключаем Bootstrap для стилизации-->
+    #<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
